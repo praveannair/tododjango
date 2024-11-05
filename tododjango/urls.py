@@ -20,5 +20,6 @@ from core import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',views.todo)
+    path('',views.todo),
+    path('deleteTodo/',views.deleteTodo)
 ]
