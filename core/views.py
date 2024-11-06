@@ -1,5 +1,8 @@
 from django.shortcuts import render
 from core import models
+from django.shortcuts import redirect
+from django.contrib.auth.forms import UserCreationForm
+
 
 def deleteTodo(request):
     if request.method == "GET":
@@ -16,4 +19,15 @@ def todo(request):
     data = {'todos':mytodo}
     return render(request,'todo.html',data)
 
-# Create your views here.
+
+def signup(request):
+     if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/accounts/login')
+     else:
+        form = UserCreationForm()
+     context = {'form': form}
+     return render(request, 'signup.html', context)
+
