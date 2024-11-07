@@ -6,9 +6,10 @@
   <body>
     <h1>Todo Application</h1>
     {% if user.is_authenticated %} {{ user.username }}
-    <a href="/accounts/logout">Logout</a>
+    <a href="/logout">Logout</a>
     {% else %}
     <a href="/accounts/login">Login</a>
+
     {% endif %}
 
     <hr />
